@@ -1,0 +1,38 @@
+.app-page-index {
+  &__post-link {
+    display        : inline-block;
+    white-space    : nowrap;
+    text-overflow  : ellipsis;
+    overflow       : hidden;
+    position       : relative;
+    vertical-align : bottom;
+    color          : #222;
+    max-width      : 100%;
+    font-size      : 2rem;
+
+    &::after {
+      content          : '';
+      position         : absolute;
+      bottom           : 0;
+      background       : #222;
+      height           : 2px;
+      left             : 0;
+      width            : 100%;
+      opacity          : 0;
+      transform        : scaleX(0);
+      transform-origin : 0 0;
+      transition       : inherit;
+    }
+
+    &:hover,
+    &:focus {
+      color : #df1e40;
+
+      &::after {
+        opacity          : 1;
+        transform        : none;
+        background-color : #df1e40;
+      }
+    }
+  }
+}

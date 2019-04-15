@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+
+$primary-color : #df1e40;
+$secondary-color : #222;
+
+* {
+  box-sizing          : border-box;
+  transition          : .2s ease;
+  transition-property : color, background-color, opacity, visibility, transform;
+}
+
+::selection {
+  color      : #fff;
+  background : #000;
+}
+
+html {
+  font : 16px 'Noto Sans', sans-serif;
+}
+
+body {
+  margin        : 0;
+  cursor        : default;
+  overflow-wrap : break-word;
+}
+
+a {
+  color           : $primary-color;
+  text-decoration : none;
+}
+
+@keyframes app__body--entrance {
+  from {
+    transform : translateY(1rem);
+    opacity   : 0;
+  }
+}
+
+.app {
+  &__body {
+    max-width : 1024px;
+    margin    : 0 auto;
+    padding   : 0 1rem 4rem;
+    animation : app__body--entrance .6s ease;
+  }
+}

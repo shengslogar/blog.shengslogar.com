@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import Header from './header';
-import './layout.scss';
+import Header from '../components/header';
+import './index.scss';
 
-const Layout = ({ children }) => (
+const DefaultLayout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -26,8 +26,8 @@ const Layout = ({ children }) => (
   />
 );
 
-Layout.propTypes = {
+DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Layout;
+export default DefaultLayout;

@@ -1,0 +1,60 @@
+.app-post {
+  &__title {
+    font-size   : 2rem;
+    font-weight : bold;
+    margin      : 1rem 0;
+  }
+
+  @keyframes app-post__content-figure-img--entrance {
+    from {
+      transform : translateY(3rem);
+    }
+  }
+
+  &__content {
+    img {
+      display   : block;
+      max-width : 100%;
+      margin    : 0 auto;
+    }
+
+    figure {
+      margin     : 3rem 0;
+      text-align : center;
+
+      img {
+        animation : app-post__content-figure-img--entrance .4s ease;
+      }
+
+      figcaption {
+        font-style : italic;
+        font-size  : .75rem;
+      }
+    }
+
+    > p {
+      margin       : 2.5rem 0;
+      line-height  : 1.6;
+      word-spacing : 1px;
+    }
+
+    blockquote {
+      margin     : 0;
+      padding    : 1rem 2rem 1rem 0;
+      font-size  : 2rem;
+      font-style : italic;
+      max-width  : 28rem;
+      float      : left;
+      color      : #aaa;
+    }
+
+    hr {
+      border     : none;
+      height     : 1px;
+      background : #eee;
+      margin     : 0 auto;
+      max-width  : 80%;
+      width      : 6rem;
+    }
+  }
+}

@@ -1,20 +1,19 @@
-@keyframes app-header--entrance {
-  from {
-    transform : translateY(1rem);
-    opacity   : 0;
-  }
-}
-
 .app-header {
   text-align  : center;
-  margin      : 4rem 0;
-  animation   : app-header--entrance .5s ease;
+  margin      : 3rem 0;
   user-select : none;
 
   &__h1 {
-    color       : #000;
-    font-size   : 2rem;
-    font-weight : 600;
-    margin      : 0;
+    padding       : 1rem 0;
+    border-bottom : 1px solid #eee;
+    color         : #aaa;
+    font-size     : 1.5rem;
+    font-weight   : normal;
+    margin        : 0;
+    display       : inline-block;
+
+    &:hover {
+      color : #000;
+    }
   }
 }

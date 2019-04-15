@@ -27,8 +27,14 @@ module.exports = {
         display: `minimal-ui`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: 'shengslogar.wordpress.com',
+        protocol: 'https',
+        hostingWPCOM: true,
+        useACF: false,
+      },
+    },
   ],
 };

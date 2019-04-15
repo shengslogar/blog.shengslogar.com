@@ -1,15 +1,39 @@
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React, { Component } from 'react';
+import Layout from '../layouts';
+import { graphql, Link } from 'gatsby';
+import './index.scss';
 
-// todo: https://public-api.wordpress.com/wp/v2/sites/shengslogar.wordpress.com/posts
+export default class PageTemplate extends Component {
+  render() {
+    const { data: { allWordpressPost: { nodes } } } = this.props;
 
-export default () => (
-  <Layout>
-    <SEO title="Home"
-         keywords={[]}/>
-    <p>
-      Coming soon.
-    </p>
-  </Layout>
-);
+    const posts = nodes.map(({ title, id, slug }) => (
+        <h2 key={id}>
+          <Link to={`/${slug}`}
+                className='app-page-index__post-link'
+                dangerouslySetInnerHTML={{ __html: title }}/>
+        </h2>
+      ),
+    );
+
+    return (
+      <Layout>
+        <div className='app-page-index'>
+          {posts}
+        </div>
+      </Layout>
+    );
+  }
+}
+
+export const query = graphql`
+  {
+    allWordpressPost {
+      nodes {
+        id
+        title
+        slug
+      }
+    }
+  }
+`;
