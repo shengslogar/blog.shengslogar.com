@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layouts';
 import { graphql, Link } from 'gatsby';
 import './index.scss';
-import SEO from '../templates/post';
+import SEO from '../components/seo';
 
 export default class PageTemplate extends Component {
   render() {
