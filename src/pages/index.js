@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layouts';
 import { graphql, Link } from 'gatsby';
 import './index.scss';
+import SEO from '../templates/post';
 
 export default class PageTemplate extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class PageTemplate extends Component {
 
     return (
       <Layout>
+        <SEO title='Posts'/>
         <div className='app-page-index'>
           {posts}
         </div>
