@@ -1,0 +1,17 @@
+.app-page {
+  &__header {
+    font-size : 2rem;
+  }
+
+  &__content {
+    figure {
+      margin : 0;
+    }
+
+    p {
+      line-height : 2.2;
+      margin      : 2rem auto;
+    }
+
+  }
+}

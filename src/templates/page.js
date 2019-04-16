@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../layouts';
 import './page.scss';
+import SEO from '../components/seo';
 
 class PageTemplate extends Component {
   render() {
     const { data: { wordpressPage: { title, content } } } = this.props;
-
     return (
       <Layout>
-        <h1 dangerouslySetInnerHTML={{ __html: title }}/>
-        <div dangerouslySetInnerHTML={{ __html: content }}/>
+        <SEO title={title}/>
+        <div className='app-page'>
+          <h1 dangerouslySetInnerHTML={{ __html: title }}
+              className='app-page__title'/>
+          <div dangerouslySetInnerHTML={{ __html: content }}
+               className='app-page__content'/>
+        </div>
       </Layout>
     );
   }

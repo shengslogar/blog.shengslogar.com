@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Serif+SC');
 
 $primary-color : #df1e40;
 $secondary-color : #222;
@@ -19,9 +19,8 @@ html {
 }
 
 body {
-  margin        : 0;
-  cursor        : default;
-  overflow-wrap : break-word;
+  margin : 0;
+  cursor : default;
 }
 
 a {
@@ -37,10 +36,37 @@ a {
 }
 
 .app {
+  max-width      : 1152px;
+  padding        : 4rem 1rem;
+  margin         : 0 auto;
+  overflow-wrap  : break-word;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+
+  &__header {
+    color          : $primary-color;
+    font-size      : 3rem;
+    font-weight    : bold;
+    letter-spacing : 1rem;
+  }
+
+  &__nav {
+    width  : 100%;
+    margin : 2rem 0 0;
+
+    &::after {
+      display    : block;
+      margin     : 2rem auto 0;
+      content    : '';
+      width      : 4rem;
+      height     : 1px;
+      background : #eee;
+    }
+  }
+
   &__body {
-    max-width : 1024px;
-    margin    : 0 auto;
-    padding   : 0 1rem 4rem;
+    width     : 100%;
     animation : app__body--entrance .6s ease;
   }
 }

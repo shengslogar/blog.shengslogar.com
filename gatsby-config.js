@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Sheng Slogar's Blog`,
-    description: ``,
+    description: `Thoughts about life.`,
     author: `@shengslogar`,
   },
   plugins: [
@@ -19,11 +19,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Sheng Slogar's Blog`,
+        short_name: `Sheng's Blog`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#222`,
         display: `minimal-ui`,
       },
     },

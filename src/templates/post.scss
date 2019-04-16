@@ -1,8 +1,17 @@
 .app-post {
+  &__title,
+  &__date {
+    margin     : 2rem 0;
+    text-align : center;
+  }
+
   &__title {
     font-size   : 2rem;
     font-weight : bold;
-    margin      : 1rem 0;
+  }
+
+  &__date {
+    font-size : .75rem;
   }
 
   @keyframes app-post__content-figure-img--entrance {
@@ -19,40 +28,43 @@
     }
 
     figure {
-      margin     : 3rem 0;
       text-align : center;
+      margin     : 0;
 
       img {
         animation : app-post__content-figure-img--entrance .4s ease;
       }
 
       figcaption {
+        margin     : 2rem 0 0 0;
         font-style : italic;
         font-size  : .75rem;
       }
     }
 
+    > p,
+    blockquote {
+      max-width : 50rem;
+    }
+
     > p {
-      margin       : 2.5rem 0;
-      line-height  : 1.6;
-      word-spacing : 1px;
+      line-height : 2.2;
+      margin      : 2rem auto;
     }
 
     blockquote {
-      margin     : 0;
-      padding    : 1rem 2rem 1rem 0;
-      font-size  : 2rem;
-      font-style : italic;
-      max-width  : 28rem;
-      float      : left;
-      color      : #aaa;
+      font        : 2rem 'Noto Serif SC', serif;
+      color       : #aaa;
+      border-left : 4px solid #f9f9f9;
+      padding     : 0 2rem;
+      margin      : 4rem auto;
     }
 
     hr {
       border     : none;
       height     : 1px;
       background : #eee;
-      margin     : 0 auto;
+      margin     : 2rem auto;
       max-width  : 80%;
       width      : 6rem;
     }

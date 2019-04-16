@@ -1,0 +1,10 @@
+.app-nav {
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+
+  &__link {
+    margin : 0 1rem;
+    color  : #555;
+  }
+}
