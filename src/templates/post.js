@@ -15,7 +15,7 @@ class PostTemplate extends Component {
         <div className='app-post'>
           <h1 className='app-post__title'
               dangerouslySetInnerHTML={{ __html: title }}/>
-          <div class='app-post__date'
+          <div className='app-post__date'
                title={date}>
             {`Posted ${distanceInWordsToNow(date)} ago`.toUpperCase()}
           </div>
