@@ -6,13 +6,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
@@ -22,8 +15,9 @@ module.exports = {
         name: `Sheng Slogar's Blog`,
         short_name: `Sheng's Blog`,
         start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#222`,
+        background_color: `#ffffff`,
+        theme_color: `#222222`,
+        icon: `src/images/icon.png`,
         display: `minimal-ui`,
       },
     },

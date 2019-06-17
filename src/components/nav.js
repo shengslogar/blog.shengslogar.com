@@ -8,7 +8,7 @@ const Nav = ({ links }) => {
     <Link key={id}
           to={`/${slug}`}
           className='app-nav__link'>
-      {title.toUpperCase()}
+      {title}
     </Link>
   ));
   return (<div className='app-nav'>
@@ -21,3 +21,22 @@ Nav.propTypes = {
 };
 
 export default Nav;
+
+/*
+    <div className='app__nav'>
+      <StaticQuery
+        query={graphql`{
+          allWordpressPage {
+            nodes {
+              id
+              title
+              slug
+            }
+          }
+        }`}
+        render={({ allWordpressPage: { nodes } }) => (
+          <Nav links={nodes}/>
+        )}/>
+    </div>
+
+ */

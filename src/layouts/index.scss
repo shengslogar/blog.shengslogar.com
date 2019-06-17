@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Serif+SC');
-
-$primary-color : #df1e40;
-$secondary-color : #222;
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri:400,700');
+@import '../components/variables';
 
 * {
   box-sizing          : border-box;
@@ -15,29 +13,34 @@ $secondary-color : #222;
 }
 
 html {
-  font : 16px 'Noto Sans', sans-serif;
+  font : 16px 'Hind Siliguri', sans-serif;
 }
 
 body {
-  margin : 0;
-  cursor : default;
+  margin     : 0;
+  cursor     : default;
+  background : #fafafa;
 }
 
 a {
   color           : $primary-color;
   text-decoration : none;
+
+  &:hover,
+  &:focus {
+    color : darken($primary-color, 10%);
+  }
 }
 
 @keyframes app__body--entrance {
   from {
-    transform : translateY(1rem);
-    opacity   : 0;
+    opacity : 0;
   }
 }
 
 .app {
-  max-width      : 1024px;
-  padding        : 4rem 1rem;
+  max-width      : 700px;
+  padding        : 4rem 2rem;
   margin         : 0 auto;
   overflow-wrap  : break-word;
   display        : flex;
@@ -45,28 +48,23 @@ a {
   align-items    : center;
 
   &__header {
-    color          : $primary-color;
-    font-size      : 3rem;
-    font-weight    : bold;
-    letter-spacing : 1rem;
-  }
+    background    : $primary-color;
+    padding       : .5rem;
+    line-height   : 1;
+    color         : #fff !important;
+    font-size     : 1rem;
+    clip-path     : polygon(0% 100%, 2% 2%, 100% 2%, 98% 86%);
+    border-radius : 5px;
 
-  &__nav {
-    width  : 100%;
-    margin : 2rem 0 0;
-
-    &::after {
-      display    : block;
-      margin     : 2rem auto 0;
-      content    : '';
-      width      : 4rem;
-      height     : 1px;
-      background : #eee;
+    &:hover,
+    &:focus {
+      background : lighten($primary-color, 5%);
     }
   }
 
   &__body {
+    margin    : 2rem 0 0;
     width     : 100%;
-    animation : app__body--entrance .6s ease;
+    animation : app__body--entrance .4s ease;
   }
 }

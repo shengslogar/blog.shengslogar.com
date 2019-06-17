@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby';
 import './index.scss';
 import SEO from '../components/seo';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import { decodeHtmlChars } from '../lib/util';
 
 export default class PageTemplate extends Component {
   render() {
@@ -12,9 +13,10 @@ export default class PageTemplate extends Component {
     const posts = nodes.map(({ title, id, slug, date }) => (
         <h2 key={id}>
           <Link to={`/${slug}`}
-                className='app-page-index__post-link'
-                dangerouslySetInnerHTML={{ __html: title }}/>
-          <small className='app-page-index__post-date'>
+                className='app-page-index__post-link'>
+            {decodeHtmlChars(title)}
+          </Link>
+          <small className='app-page-index__post-date' title={date}>
             {`Posted ${distanceInWordsToNow(date)} ago`.toUpperCase()}
           </small>
         </h2>
@@ -34,7 +36,7 @@ export default class PageTemplate extends Component {
 
 export const query = graphql`
   {
-    allWordpressPost {
+    allWordpressPost(sort: { fields: [date], order: DESC }) {
       nodes {
         id
         title

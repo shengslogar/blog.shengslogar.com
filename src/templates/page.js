@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../layouts';
 import './page.scss';
 import SEO from '../components/seo';
+import { decodeHtmlChars } from '../lib/util';
 
 class PageTemplate extends Component {
   render() {
@@ -11,8 +12,9 @@ class PageTemplate extends Component {
       <Layout>
         <SEO title={title}/>
         <div className='app-page'>
-          <h1 dangerouslySetInnerHTML={{ __html: title }}
-              className='app-page__title'/>
+          <h1 className='app-page__title'>
+            {decodeHtmlChars(title)}
+          </h1>
           <div dangerouslySetInnerHTML={{ __html: content }}
                className='app-page__content'/>
         </div>

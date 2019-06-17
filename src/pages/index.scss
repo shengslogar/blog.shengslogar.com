@@ -1,4 +1,6 @@
 .app-page-index {
+  text-align : center;
+
   &__post {
     &-link {
       display        : inline-block;
@@ -37,10 +39,11 @@
     }
 
     &-date {
-      color     : #aaa;
-      font-size : .75rem;
-      display   : block;
-      margin    : .25rem 0;
+      color       : #aaa;
+      font-size   : .75rem;
+      font-weight : normal;
+      display     : block;
+      margin      : .25rem 0;
     }
   }
 }

@@ -1,17 +1,21 @@
+@import '../components/variables';
+
 .app-post {
   &__title,
   &__date {
-    margin     : 2rem 0;
     text-align : center;
   }
 
   &__title {
-    font-size   : 2rem;
-    font-weight : bold;
+    margin         : 0;
+    font-size      : 2rem;
+    font-weight    : bold;
+    text-transform : uppercase;
   }
 
   &__date {
-    font-size : .75rem;
+    font-size      : .75rem;
+    text-transform : uppercase;
   }
 
   @keyframes app-post__content-figure-img--entrance {
@@ -29,35 +33,32 @@
 
     figure {
       text-align : center;
-      margin     : 0;
+      margin     : 2rem 0;
 
       img {
         animation : app-post__content-figure-img--entrance .4s ease;
       }
 
       figcaption {
-        margin     : 2rem 0 0 0;
-        font-style : italic;
+        margin     : .5rem 0 0 0;
         font-size  : .75rem;
       }
     }
 
     > p,
     blockquote {
-      max-width : 50rem;
-    }
-
-    > p {
-      line-height : 2.2;
-      margin      : 2rem auto;
+      line-height : 1.8;
+      text-align  : justify;
+      margin      : 2rem 0;
+      color       : #222;
     }
 
     blockquote {
-      font        : 2rem 'Noto Serif SC', serif;
-      color       : #aaa;
-      border-left : 4px solid #f9f9f9;
-      padding     : 0 2rem;
-      margin      : 4rem auto;
+      font-style : italic;
+      color      : #aaa;
+      font-size  : 1.2rem;
+      text-align : center;
+      display    : block;
     }
 
     hr {

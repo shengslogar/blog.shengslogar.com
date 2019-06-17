@@ -5,6 +5,7 @@ import Layout from '../layouts';
 import SEO from '../components/seo';
 import './post.scss';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import { decodeHtmlChars } from '../lib/util';
 
 class PostTemplate extends Component {
   render() {
@@ -13,11 +14,12 @@ class PostTemplate extends Component {
       <Layout>
         <SEO title={title}/>
         <div className='app-post'>
-          <h1 className='app-post__title'
-              dangerouslySetInnerHTML={{ __html: title }}/>
+          <h1 className='app-post__title'>
+            {decodeHtmlChars(title)}
+          </h1>
           <div className='app-post__date'
                title={date}>
-            {`Posted ${distanceInWordsToNow(date)} ago`.toUpperCase()}
+            {`Posted ${distanceInWordsToNow(date)} ago`}
           </div>
           <div className='app-post__content'
                dangerouslySetInnerHTML={{ __html: content }}/>

@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
+import { decodeHtmlChars } from '../lib/util';
 
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
@@ -18,6 +19,7 @@ function SEO({ description, lang, meta, keywords, title }) {
     `,
   );
 
+  const metaTitle       = title != null ? decodeHtmlChars(title) : '';
   const metaDescription = description || site.siteMetadata.description;
 
   return (
@@ -27,7 +29,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         lang,
       }}
       defaultTitle={site.siteMetadata.title}
-      title={title}
+      title={metaTitle}
       titleTemplate={`%s - ${site.siteMetadata.title}`}
       meta={[
         {
@@ -36,7 +38,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:description`,
@@ -56,7 +58,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           name: `twitter:description`,
