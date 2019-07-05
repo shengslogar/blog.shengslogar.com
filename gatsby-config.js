@@ -30,5 +30,12 @@ module.exports = {
         useACF: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-38963765-5',
+        head: false,
+      },
+    },
   ],
 };
