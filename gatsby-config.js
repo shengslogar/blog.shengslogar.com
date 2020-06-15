@@ -3,6 +3,7 @@ module.exports = {
     title: `Sheng Slogar's Blog`,
     description: `Thoughts about life.`,
     author: `@shengslogar`,
+    url: `https://shengslogar.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,6 +36,12 @@ module.exports = {
       options: {
         trackingId: 'UA-38963765-5',
         head: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `shengslogar`,
       },
     },
   ],

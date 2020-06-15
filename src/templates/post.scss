@@ -40,8 +40,8 @@
       }
 
       figcaption {
-        margin     : .5rem 0 0 0;
-        font-size  : .75rem;
+        margin    : .5rem 0 0 0;
+        font-size : .75rem;
       }
     }
 
@@ -68,6 +68,23 @@
       margin     : 2rem auto;
       max-width  : 80%;
       width      : 6rem;
+    }
+  }
+
+  &__comments-toggle {
+    font       : inherit;
+    display    : block;
+    width      : 100%;
+    cursor     : pointer;
+    background : #eee;
+    color      : #000;
+    border     : none;
+    padding    : .25rem;
+    outline    : none;
+    font-size  : .85rem;
+
+    &:focus {
+      outline : 1px solid $primary-color;
     }
   }
 }
