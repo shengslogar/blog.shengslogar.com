@@ -3,7 +3,6 @@ import Layout from '../layouts';
 import { graphql, Link } from 'gatsby';
 import './index.scss';
 import SEO from '../components/seo';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import { decodeHtmlChars } from '../lib/util';
 
 export default class PageTemplate extends Component {
@@ -16,10 +15,6 @@ export default class PageTemplate extends Component {
                 className='app-page-index__post-link'>
             {decodeHtmlChars(title)}
           </Link>
-          <small className='app-page-index__post-date'
-                 title={date}>
-            {`Posted ${distanceInWordsToNow(date)} ago`.toUpperCase()}
-          </small>
         </h2>
       ),
     );

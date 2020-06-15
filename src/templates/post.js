@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import Layout from '../layouts';
 import SEO from '../components/seo';
 import './post.scss';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-import { decodeHtmlChars } from '../lib/util';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import formatISO from 'date-fns/formatISO';
+import { decodeHtmlChars, isSsr } from '../lib/util';
 import { Disqus } from 'gatsby-plugin-disqus';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
 class PostTemplate extends Component {
   constructor(props) {
@@ -30,13 +31,13 @@ class PostTemplate extends Component {
             },
           } = this.props;
 
-    const disqusConfig = typeof window !== 'undefined'
-      ? {
+    const disqusConfig = isSsr
+      ? null
+      : {
         url: `${siteUrl}${window.location.pathname}`,
         identifier,
         title,
-      }
-      : null;
+      };
 
     return (
       <Layout>
@@ -47,7 +48,10 @@ class PostTemplate extends Component {
           </h1>
           <div className='app-post__date'
                title={date}>
-            {`Posted ${distanceInWordsToNow(date)} ago`}
+            {`Posted ${isSsr()
+              ? `on ${formatISO(date)}`
+              : `${formatDistanceToNow(date)} ago`
+            }`}
           </div>
           <div className='app-post__content'
                dangerouslySetInnerHTML={{ __html: content }}/>
@@ -60,7 +64,7 @@ class PostTemplate extends Component {
                             className='app-post__comments'/>
                   : <button onClick={this.openComments.bind(this)}
                             className='app-post__comments-toggle'>
-                    Open Comments
+                    Load Comments
                   </button>
               }
             </Fragment>
@@ -79,17 +83,17 @@ PostTemplate.propTypes = {
 export default PostTemplate;
 
 export const query = graphql`
-  query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
-      id
-      title
-      content
-      date
-    },
-    site {
-      siteMetadata {
-        url
-      }
-    }
-  }
-`;
+              query($id: String!) {
+              wordpressPost(id: {eq: $id}) {
+              id
+              title
+              content
+              date
+            },
+              site {
+              siteMetadata {
+              url
+            }
+            }
+            }
+              `;
