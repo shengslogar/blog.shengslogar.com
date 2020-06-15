@@ -2,9 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Layout from '../layouts';
 import SEO from '../components/seo';
 import './post.scss';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import formatISO from 'date-fns/formatISO';
-import { decodeHtmlChars, isSsr } from '../lib/util';
+import { dateToScreen, decodeHtmlChars, isSsr } from '../lib/util';
 import { Disqus } from 'gatsby-plugin-disqus';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
@@ -31,7 +29,7 @@ class PostTemplate extends Component {
             },
           } = this.props;
 
-    const disqusConfig = isSsr
+    const disqusConfig = isSsr()
       ? null
       : {
         url: `${siteUrl}${window.location.pathname}`,
@@ -48,10 +46,7 @@ class PostTemplate extends Component {
           </h1>
           <div className='app-post__date'
                title={date}>
-            {`Posted ${isSsr()
-              ? `on ${formatISO(date)}`
-              : `${formatDistanceToNow(date)} ago`
-            }`}
+            {`Posted ${dateToScreen(date)}`}
           </div>
           <div className='app-post__content'
                dangerouslySetInnerHTML={{ __html: content }}/>

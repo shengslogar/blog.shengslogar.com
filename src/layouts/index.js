@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
   <div className='app'>
     <Link to='/'
           className='app__header'>
-      Sheng Slogar's Blog
+      Sheng Slogar
     </Link>
     <div className='app__body'>
       {children}

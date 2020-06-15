@@ -3,7 +3,7 @@ import Layout from '../layouts';
 import { graphql, Link } from 'gatsby';
 import './index.scss';
 import SEO from '../components/seo';
-import { decodeHtmlChars } from '../lib/util';
+import { dateToScreen, decodeHtmlChars } from '../lib/util';
 
 export default class PageTemplate extends Component {
   render() {
@@ -15,6 +15,10 @@ export default class PageTemplate extends Component {
                 className='app-page-index__post-link'>
             {decodeHtmlChars(title)}
           </Link>
+          <small className='app-page-index__post-date'
+                 title={date}>
+            {`Posted ${dateToScreen(date)}`.toUpperCase()}
+          </small>
         </h2>
       ),
     );
