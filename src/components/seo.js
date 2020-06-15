@@ -20,14 +20,12 @@ function SEO({ description, lang, meta, keywords, title }) {
   );
 
   const metaTitle       = title != null ? decodeHtmlChars(title) : '';
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = decodeHtmlChars(description || site.siteMetadata.description);
 
   return (
     <Helmet
       encodeSpecialCharacters={false}
-      htmlAttributes={{
-        lang,
-      }}
+      htmlAttributes={{ lang }}
       defaultTitle={site.siteMetadata.title}
       title={metaTitle}
       titleTemplate={`%s - ${site.siteMetadata.title}`}
@@ -68,8 +66,8 @@ function SEO({ description, lang, meta, keywords, title }) {
         .concat(
           keywords.length > 0
             ? {
-              name: `keywords`,
-              content: keywords.join(`, `),
+              name: 'keywords',
+              content: keywords.join(', '),
             }
             : [],
         )
@@ -79,10 +77,10 @@ function SEO({ description, lang, meta, keywords, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
   keywords: [],
-  description: ``,
+  description: '',
 };
 
 SEO.propTypes = {

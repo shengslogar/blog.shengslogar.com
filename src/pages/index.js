@@ -16,7 +16,8 @@ export default class PageTemplate extends Component {
                 className='app-page-index__post-link'>
             {decodeHtmlChars(title)}
           </Link>
-          <small className='app-page-index__post-date' title={date}>
+          <small className='app-page-index__post-date'
+                 title={date}>
             {`Posted ${distanceInWordsToNow(date)} ago`.toUpperCase()}
           </small>
         </h2>
