@@ -3,7 +3,7 @@ module.exports = {
     title: `Sheng Slogar's Blog`,
     description: `Thoughts about life.`,
     author: `@ShengSlogar`,
-    url: `https://sheng.blog`,
+    url: `https://blog.shengslogar.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
