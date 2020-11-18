@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Sheng Slogar`,
+    title: `Sheng Slogar's Blog`,
     description: `Thoughts about life.`,
-    author: `@shengslogar`,
-    url: `https://shengslogar.com`,
+    author: `@ShengSlogar`,
+    url: `https://sheng.blog`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Sheng Slogar`,
+        name: `Sheng Slogar's Blog`,
         short_name: `Sheng's Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
